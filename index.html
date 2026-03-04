@@ -3,12 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SamaCV - Générateur de CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <!-- Bannière -->
-    <div>
-        
+    <header class="site-header">
+        <div class="container">
+            <h1>SamaCV</h1>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Créez votre CV en ligne</h2>
+        <form id="cv-form">
+            <h2>Informations personnelles</h2>
+            <input type="text" name="name" placeholder="Nom complet" required>
+            <input type="email" name="email" placeholder="Adresse e-mail">
+            <input type="text" name="phone" placeholder="Téléphone">
+            <input type="text" name="address" placeholder="Adresse">
+
+            <h2>Éducation</h2>
+            <div id="education-container">
+            </div>
+            <button type="button" onclick="addEducation()">Ajouter un diplôme</button>
+
+            <h2>Expérience professionnelle</h2>
+            <div id="experience-container">
+            </div>
+            <button type="button" onclick="addExperience()">Ajouter une expérience</button>
+
+            <h2>Compétences</h2>
+            <input type="text" name="skills" placeholder="Séparez par des virgules">
+
+            <h2>Centres d'intérêt</h2>
+            <input type="text" name="interests" placeholder="Séparez par des virgules">
+
+            <button type="submit" class="primary-btn">Générer le CV</button>
+        </form>
+
+        <div id="cv-preview">
+        </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
