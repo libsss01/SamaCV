@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,37 +16,73 @@
         </div>
     </header>
     <div class="container">
-        <h2>Créez votre CV en ligne</h2>
-        <form id="cv-form">
-            <h2>Informations personnelles</h2>
-            <input type="text" name="name" placeholder="Nom complet" required>
-            <input type="email" name="email" placeholder="Adresse e-mail">
-            <input type="text" name="phone" placeholder="Téléphone">
-            <input type="text" name="address" placeholder="Adresse">
-
-            <h2>Éducation</h2>
-            <div id="education-container">
+        <div class="page-head">
+            <div>
+                <h1>SamaCV</h1>
+                <p class="page-subtitle">Un générateur de CV simple, clair et original — parfait pour un(e) étudiant(e) en informatique.</p>
             </div>
-            <button type="button" onclick="addEducation()">Ajouter un diplôme</button>
+            <p class="page-hint">Astuce : l’aperçu se met à jour automatiquement pendant que vous tapez.</p>
+        </div>
+        <div class="cv-layout">
+            <section class="cv-panel" aria-label="Informations à remplir">
+                <div class="panel-header">
+                    <div>
+                        <h3>Formulaire</h3>
+                        <p class="panel-subtitle">Remplissez juste l’essentiel. Vous pouvez ajouter plusieurs diplômes/expériences.</p>
+                    </div>
+                </div>
+                <form id="cv-form">
+                    <h2>Informations personnelles</h2>
+                    <input type="text" name="name" placeholder="Nom complet">
+                    <input type="email" name="email" placeholder="Adresse e-mail">
+                    <input type="text" name="phone" placeholder="Téléphone">
+                    <input type="text" name="address" placeholder="Adresse">
 
-            <h2>Expérience professionnelle</h2>
-            <div id="experience-container">
-            </div>
-            <button type="button" onclick="addExperience()">Ajouter une expérience</button>
+                    <h2>Éducation</h2>
+                    <div id="education-container">
+                    </div>
+                    <button type="button" class="secondary-btn" onclick="addEducation()">+ Ajouter un diplôme</button>
 
-            <h2>Compétences</h2>
-            <input type="text" name="skills" placeholder="Séparez par des virgules">
+                    <h2>Expérience professionnelle</h2>
+                    <div id="experience-container">
+                    </div>
+                    <button type="button" class="secondary-btn" onclick="addExperience()">+ Ajouter une expérience</button>
 
-            <h2>Centres d'intérêt</h2>
-            <input type="text" name="interests" placeholder="Séparez par des virgules">
+                    <h2>Compétences</h2>
+                    <input type="text" name="skills" placeholder="Séparez par des virgules">
 
-            <button type="submit" class="primary-btn">Générer le CV</button>
-        </form>
+                    <h2>Centres d'intérêt</h2>
+                    <input type="text" name="interests" placeholder="Séparez par des virgules">
 
-        <div id="cv-preview">
+                    <button type="submit" class="primary-btn">Générer le CV</button>
+                </form>
+            </section>
+
+            <section class="cv-panel" aria-label="CV généré">
+                <div class="panel-header panel-header--split">
+                    <div>
+                        <h3>Aperçu</h3>
+                        <p class="panel-subtitle">Choisissez un modèle puis téléchargez votre CV en PDF.</p>
+                    </div>
+                    <div class="panel-actions" aria-label="Actions CV">
+                        <label class="inline-field">
+                            <span>Modèle</span>
+                            <select id="template-select" aria-label="Choisir un modèle">
+                                <option value="classic">Classique</option>
+                                <option value="split">Deux colonnes</option>
+                                <option value="timeline">Timeline</option>
+                                <option value="cards">Cartes</option>
+                            </select>
+                        </label>
+                        <button type="button" id="download-btn" class="primary-btn">Télécharger</button>
+                    </div>
+                </div>
+                <div id="cv-preview" aria-live="polite" data-template="classic"></div>
+            </section>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
 </body>
 </html>
