@@ -64,17 +64,16 @@ Architecture simple :
 - Chaque modèle change surtout :
 	- l’accent (`--cv-accent`) et le fond soft (`--cv-soft`)
 	- la mise en page (ex: `split` en 2 colonnes)
-	- quelques variations (timeline, cards)
+	- quelques variations (tcards)
 
 
 ### 3) Persistance du template
 - `localStorage` garde le dernier modèle choisi.
-- UX meilleure : on retrouve son modèle après rechargement.
 
 ### 4) Export PDF via `jsPDF` (texte)
 Le PDF est généré **directement** (sans impression) avec `jsPDF`.
 
-Raison principale : la capture du DOM (type html2canvas/html2pdf) peut échouer ou produire un PDF blanc selon le navigateur, le contexte ou certains styles. La génération “texte” est plus fiable.
+Raison : la capture du DOM (type html2canvas/html2pdf) peut échouer ou produire un PDF blanc selon le navigateur, le contexte ou certains styles. La génération “texte” est plus fiable.
 
 ---
 
